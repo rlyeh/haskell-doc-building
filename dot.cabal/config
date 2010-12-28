@@ -35,7 +35,7 @@ constraint: base>=4.0.0.0
 -- cabal-lib-version:
 -- preference:
 documentation: True
--- haddock-option: "--html --hoogle --hyperlink-source"
+-- haddock-option: 
 -- doc-index-file: $datadir/doc/index.html
 -- root-cmd:
 -- symlink-bindir:
@@ -58,11 +58,11 @@ install-dirs user
   -- haddockdir: $htmldir
 
 install-dirs global
- prefix: /usr/local
- bindir: $prefix/$compiler/bin
- libdir: $prefix/lib
- libsubdir: $compiler/pkgs/$pkgid
- datadir: $prefix/share/$compiler/pkgs
+  prefix: /usr/local/$compiler
+  -- bindir: $prefix/bin
+  -- libdir: $prefix/lib
+  -- libsubdir: pkgs/$pkgid
+  -- datadir: $prefix/share/
   -- libexecdir: $prefix/libexec
   -- datasubdir: $pkgid
   -- docdir: $datadir/doc/$pkgid

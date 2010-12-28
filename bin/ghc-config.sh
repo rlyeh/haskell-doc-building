@@ -1,5 +1,5 @@
 #!/bin/bash
-FILEROOT=~/pdv/haskell-doc-building/files
+MYROOT=${0%/bin\/*}
 
 fail() {
   local code=$1
@@ -24,15 +24,19 @@ fi
 # expose HsColour and hasktags
 export PATH=$PATH:/usr/local/ghc-6.12.3/bin
 
+FILEROOT=$MYROOT/files/ghc-${GHCVER}
+if [[ -d "$FILEROOT" ]] ; then 
+    echo cp -vR $FILEROOT ..
+    cp -vR $FILEROOT ..
+fi
+
 echo "About to make clean and reconfigure.  ^c to abort"
 echo -n ">"
 read || exit 1
 
-cp ${FILEROOT}/ghc-${GHC-VER}/mk/build.mk mk/build.mk
 
+./configure --prefix=/usr/local/ghc-${GHCVER} $*
 
-./configure --prefix=/usr/local --bindir=/usr/local/bin/ghc-${GHCVER} \
-  --datarootdir=/usr/local/share/ghc-${GHCVER} $*
 
 fgrep -q -e "HSCOLOUR=''" config.log && fail 1 \
   "HsColour not found by configure. Is it installed and in your path?" \
