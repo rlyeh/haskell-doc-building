@@ -150,11 +150,13 @@ endif
 NoFibWays =
 STRIP_CMD = :
 
+# Building PDF or PS seems not to work for ghc-7
 HADDOCK_DOCS       = YES
 BUILD_DOCBOOK_HTML = YES
 BUILD_DOCBOOK_PS   = NO
 BUILD_DOCBOOK_PDF  = NO
 
+# Make sure we build hoogle index and html for every library
 libraries/base_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
 libraries/array_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
 libraries/bin-package-db_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
@@ -166,23 +168,28 @@ libraries/extensible-exceptions_dist-install_HADDOCK_OPTS += --hoogle --html --u
 libraries/filepath_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
 libraries/ghc-binary_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
 libraries/ghc-prim_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
-libraries/haskeline_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
 libraries/haskell2010_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
 libraries/haskell98_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
 libraries/hpc_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
 libraries/integer-gmp_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
-libraries/mtl_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
 libraries/old-locale_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
 libraries/old-time_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
 libraries/pretty_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
 libraries/process_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
 libraries/random_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
 libraries/template-haskell_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
-libraries/terminfo_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
 libraries/time_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
 libraries/unix_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
-libraries/utf8-string_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
-libraries/xhtml_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
 utils/ghc-pkg_dist-install_HADDOCK_OPTS += --hoogle --html --internal --executable --use-unicode
 utils/hsc2hs_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
+
+
+# These libraries are built but not installed.  building docs for them screws up 
+# the central index
+#libraries/xhtml_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
+#libraries/utf8-string_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
+#libraries/haskeline_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
+#libraries/mtl_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
+#libraries/terminfo_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
+
 
