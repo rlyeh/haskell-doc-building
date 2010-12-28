@@ -18,7 +18,9 @@ if [[ ! -r "VERSION" ||
 fi
 
 GHCVER=$(cat VERSION)
-export XML_CATALOG_FILES="/opt/local/etc/xml/catalog"
+if [[ -r "/opt/local/etc/xml/catalog" ]]; then 
+  export XML_CATALOG_FILES="/opt/local/etc/xml/catalog"
+fi 
 # expose HsColour and hasktags
 export PATH=$PATH:/usr/local/ghc-6.12.3/bin
 
