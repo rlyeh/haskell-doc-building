@@ -184,12 +184,11 @@ utils/ghc-pkg_dist-install_HADDOCK_OPTS += --hoogle --html --internal --executab
 utils/hsc2hs_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
 
 
-# These libraries are built but not installed.  building docs for them screws up 
-# the central index
-#libraries/xhtml_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
-#libraries/utf8-string_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
-#libraries/haskeline_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
-#libraries/mtl_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
-#libraries/terminfo_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
+## We will need to install these docs by hand - some installer bug
+libraries/xhtml_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
+libraries/utf8-string_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
+libraries/haskeline_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
+libraries/mtl_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
+libraries/terminfo_dist-install_HADDOCK_OPTS += --hoogle --html --use-unicode
 
 

@@ -35,7 +35,7 @@ echo -n ">"
 read || exit 1
 
 
-./configure --prefix=/usr/local/ghc-${GHCVER} $*
+./configure --prefix=/usr/local/ghc-${GHCVER} $* 
 
 
 fgrep -q -e "HSCOLOUR=''" config.log && fail 1 \

@@ -65,6 +65,6 @@ install-dirs global
   -- datadir: $prefix/share/
   -- libexecdir: $prefix/libexec
   -- datasubdir: $pkgid
-  -- docdir: $datadir/doc/$pkgid
-  -- htmldir: $docdir/html
+  docdir: $datadir/doc/libraries/$pkgid
+  htmldir: $datadir/doc/ghc/html/libraries/$pkgid
   -- haddockdir: $htmldir
